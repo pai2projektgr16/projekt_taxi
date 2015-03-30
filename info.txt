@@ -1,69 +1,76 @@
 G³ówne za³o¿enia co do projektu. ¯ywcem z neta.
 
-Zarz¹dzanie kursami przez operatora
 
-    Proste wprowadzanie zleceñ do systemu z mo¿liwoœci¹ sprawdzenia ulicy i numeru.
-    Mo¿liwoœæ wpisania zlecenia terminowego wraz z czasem wyprzedzenia terminu.
-    Mo¿liwoœæ wprowadzenia do zlecenia warunków dodatkowych, ale spe³niaj¹cych okreœlone w programie za³o¿eñ (np. auto combi, przewóz zwierz¹t).
-    Mo¿liwe jest na ¿yczenie klienta umieszczenie w treœci kursu opisu zakupów, który zostanie automatycznie przesy³any razem z treœci¹ kursu (adresem) do taksówkarza.
-    Mo¿liwe jest automatyczne pobranie treœci ostatniego zlecenia (adresu lub treœci zakupów) przez taksówkê bez anga¿owania centrali, np. w przypadku chwilowych problemów z ³¹cznoœci¹ radiow¹.
-    Mo¿liwe jest automatyczne pobranie przez kierowcê informacji o sposobie dojazdu do adresu wskazanego w treœci kursu.
-    Przy wydawaniu zlecenia system automatycznie wybiera taksówkê, która stoi najbli¿ej miejsca zlecenia i czeka najd³u¿ej. Jednak mo¿liwe jest ustawienie ró¿nych kryteriów wydawania zleceñ.
-    Przy wprowadzeniu zlecenia mo¿liwe jest wskazanie konkretnej taksówki, która ma odbyæ kurs (np. w przypadku taksówek baga¿owych).
-    Mo¿liwe jest wydanie dowolnego zlecenia z listy zleceñ niezrealizowanych.
-    Wydanie kursu polega tylko na naciœniêciu pojedynczego klawisza, po którym tekst zlecenia jest przes³any drog¹ radiow¹ do terminala taksówkarza, u którego pojawia siê na jego ekranie i sygnalizuje dŸwiêkiem.
-    Na terminalu w taksówce pojawia siê czas przyjêcia zlecenia lub w przypadku zlecenia terminowego termin realizacji.
-    Obs³uga zleceñ bezgotówkowych ze zwrotnym podaniem kwoty i nr rachunku przez taksówkê.
-    Obs³uga SMS-ów miêdzy taksówkami (wewnêtrzne komunikaty).
+	Zarz¹dzanie kursami przez operatora
 
-Oprogramowanie dla taksówek
+- Proste wprowadzanie zleceñ do systemu z mo¿liwoœci¹ sprawdzenia ulicy i numeru.
+- Mo¿liwoœæ wpisania zlecenia terminowego wraz z czasem wyprzedzenia terminu.
+- Mo¿liwoœæ wprowadzenia do zlecenia warunków dodatkowych, ale spe³niaj¹cych okreœlone w programie za³o¿eñ (np. auto combi, przewóz zwierz¹t).
+- Mo¿liwe jest na ¿yczenie klienta umieszczenie w treœci kursu opisu zakupów, który zostanie automatycznie przesy³any razem z treœci¹ kursu (adresem) do taksówkarza.
+- Mo¿liwe jest automatyczne pobranie treœci ostatniego zlecenia (adresu lub treœci zakupów) przez taksówkê bez anga¿owania centrali, np. w przypadku chwilowych problemów z ³¹cznoœci¹ radiow¹.
+- Mo¿liwe jest automatyczne pobranie przez kierowcê informacji o sposobie dojazdu do adresu wskazanego w treœci kursu.
+- Przy wydawaniu zlecenia system automatycznie wybiera taksówkê, która stoi najbli¿ej miejsca zlecenia i czeka najd³u¿ej. Jednak mo¿liwe jest ustawienie ró¿nych kryteriów wydawania zleceñ.
+- Przy wprowadzeniu zlecenia mo¿liwe jest wskazanie konkretnej taksówki, która ma odbyæ kurs (np. w przypadku taksówek baga¿owych).
+- Mo¿liwe jest wydanie dowolnego zlecenia z listy zleceñ niezrealizowanych.
+- Wydanie kursu polega tylko na naciœniêciu pojedynczego klawisza, po którym tekst zlecenia jest przes³any drog¹ radiow¹ do terminala taksówkarza, u którego pojawia siê na jego ekranie i sygnalizuje dŸwiêkiem.
+- Na terminalu w taksówce pojawia siê czas przyjêcia zlecenia lub w przypadku zlecenia terminowego termin realizacji.
+- Obs³uga zleceñ bezgotówkowych ze zwrotnym podaniem kwoty i nr rachunku przez taksówkê.
+- Obs³uga SMS-ów miêdzy taksówkami (wewnêtrzne komunikaty).
 
-    Mo¿liwoœæ zarejestrowania siê w centrali systemu z ró¿nymi statusami: na postoju, wyjecha³ z postoju, w kursie, doje¿d¿a do rejonu, na przerwie, nie pracuje i inne.
-    Mo¿liwoœæ wyœwietlenia stanu ca³ego miasta.
-    Informacja o stanie wszystkich taksówek jest pamiêtana we wszystkich terminalach w taksówkach.
-    Ka¿da taksówka ma mo¿liwoœæ uzyskania z terminala dowolnej informacji o stanie taksówek w mieœcie, np. pozycja w kolejce, o iloœæ taksówek na innych postojach.
-    Operator mo¿e zapytaæ o stan taksówki - wyœwietlany jest czas, miejsce postoju i ostatnie zlecenie kursu.
-    Po zleceniu mo¿liwe jest zapisanie w bazie danych informacje o kwocie, karcie kredytowej lub numerze rachunku.
-    Taksówka ma mo¿liwoœæ zg³oszenia alarmu.
-    Mo¿liwoœæ wpisania i przes³ania dowolnej wiadomoœci tekstowej bezpoœrednio z taksówki do taksówki.
 
-Oprogramowanie dla operatorów
+	Oprogramowanie dla taksówek
 
-    Praca z programami systemu dostêpna po podaniu nazwy operatora i has³a.
-    Wszystkie operacje wykonane przez operatora zostaj¹ zarejestrowane w bazie danych.
-    Mo¿liwe jest œledzenie momentu rozpoczêcia i zakoñczenia zmiany przez danego u¿ytkownika.
-    Istnieje mo¿liwoœæ nadania poszczególnym u¿ytkownikom praw dostêpu do modyfikacji wybranych danych.
+- Mo¿liwoœæ zarejestrowania siê w centrali systemu z ró¿nymi statusami: na postoju, wyjecha³ z postoju, w kursie, doje¿d¿a do rejonu, na przerwie, nie pracuje i inne.
+- Mo¿liwoœæ wyœwietlenia stanu ca³ego miasta.
+- Informacja o stanie wszystkich taksówek jest pamiêtana we wszystkich terminalach w taksówkach.
+- Ka¿da taksówka ma mo¿liwoœæ uzyskania z terminala dowolnej informacji o stanie taksówek w mieœcie, np. pozycja w kolejce, o iloœæ taksówek na innych postojach.
+- Operator mo¿e zapytaæ o stan taksówki - wyœwietlany jest czas, miejsce postoju i ostatnie zlecenie kursu.
+- Po zleceniu mo¿liwe jest zapisanie w bazie danych informacje o kwocie, karcie kredytowej lub numerze rachunku.
+- Taksówka ma mo¿liwoœæ zg³oszenia alarmu.
+- Mo¿liwoœæ wpisania i przes³ania dowolnej wiadomoœci tekstowej bezpoœrednio z taksówki do taksówki.
 
-Zarz¹dzanie baz¹ klientów
 
-    W bazie klientów zapisywane s¹ wszystkie adresy klientów, którzy podali nr telefonu.
-    Umo¿liwia to szybkie przyjmowania zleceñ po podaniu numeru telefonu lub z identyfikacji telefonu przez centralê telefoniczn¹.
-    Mo¿liwoœæ wpisania kodów sta³ych klientów (has³o, has³o i numer lub sam numer).
-    Przyjêcie zlecenia dla sta³ego klienta polega tylko na wpisaniu kodu.
+	Oprogramowanie dla operatorów
 
-Administracja systemem
+- Praca z programami systemu dostêpna po podaniu nazwy operatora i has³a.
+- Wszystkie operacje wykonane przez operatora zostaj¹ zarejestrowane w bazie danych.
+- Mo¿liwe jest œledzenie momentu rozpoczêcia i zakoñczenia zmiany przez danego u¿ytkownika.
+- Istnieje mo¿liwoœæ nadania poszczególnym u¿ytkownikom praw dostêpu do modyfikacji wybranych danych.
 
-    Zarz¹dzanie systemem z poziomu specjalnego programu po podaniu has³a.
-    Mo¿liwoœæ odszukania ka¿dego zlecenia kursu z przesz³oœci.
-    Mo¿liwoœæ archiwizacji starych zleceñ kursów i przenoszenia ich na inny noœnik danych.
-    Mo¿liwoœæ dodawania i modyfikacji wszystkich sta³ych danych w bazie w trakcie pracy programu, takich jak: opisu taksówek, ulic, sta³ych klientów, operatorów, postojów i ich przyporz¹dkowania do ulic.
-    Wszystkie zmienione dane s¹ od razu aktualizowane na wszystkich stanowiskach.
-    System umo¿liwia wys³anie zakazu pracy do taksówki, która zostaje ca³kowicie wy³¹czona z systemu (np. w przypadku niep³acenia sk³adek).
 
-Generowanie raportów i statystyk
+	Zarz¹dzanie baz¹ klientów
 
-    Raport czasu pracy taksówek i raport iloœci zleceñ zrealizowanych przez taksówkê.
-    Raport ostatnich zdarzeñ taksówki (zmiany stanu).
-    Raport czasu pracy operatorów, raport iloœci przyjêtych i wydanych zleceñ przez operatorów.
-    Raport iloœci zleceñ dla najlepszych sta³ych klientów.
-    Podsumowanie iloœci zleceñ dla dowolnego sta³ego klienta.
-    Raport z po³¹czeñ telefonicznych (przyjêtych, nieodebranych).
-    Mo¿liwoœæ przeprowadzania g³osowañ wewnêtrznych i zamieszczenia wyników w raporcie.
+- W bazie klientów zapisywane s¹ wszystkie adresy klientów, którzy podali nr telefonu.
+- Umo¿liwia to szybkie przyjmowania zleceñ po podaniu numeru telefonu lub z identyfikacji telefonu przez centralê telefoniczn¹.
+- Mo¿liwoœæ wpisania kodów sta³ych klientów (has³o, has³o i numer lub sam numer).
+- Przyjêcie zlecenia dla sta³ego klienta polega tylko na wpisaniu kodu.
 
-Wiadomoœci
 
-    Mo¿liwoœæ wpisania i przes³ania dowolnej wiadomoœci tekstowej dla kierowcy.
-    Mo¿liwoœæ wpisania wiadomoœci ogólnej - jednej dla wszystkich taksówek, nadawanej w regularnych odstêpach czasu.
-    Wiadomoœci wysy³ane tylko, gdy system wykryje aktywnoœæ taksówki.
-    Wszystkie wiadomoœci zapisane w bazie danych i dostêpne dla kontroli - wa¿ne szczególnie w przypadku wiadomoœci prywatnych które s¹ niewidoczne dla wszystkich taksówek poza w³aœciw¹.
-    Mo¿liwoœæ tworzenia na poziomie centrali oraz zdalnego pobierania krótkich informacji ogólnych, jak np. dy¿urów aptek, sklepów nocnych itd.
+	Administracja systemem
+
+- Zarz¹dzanie systemem z poziomu specjalnego programu po podaniu has³a.
+- Mo¿liwoœæ odszukania ka¿dego zlecenia kursu z przesz³oœci.
+- Mo¿liwoœæ archiwizacji starych zleceñ kursów i przenoszenia ich na inny noœnik danych.
+- Mo¿liwoœæ dodawania i modyfikacji wszystkich sta³ych danych w bazie w trakcie pracy programu, takich jak: opisu taksówek, ulic, sta³ych klientów, operatorów, postojów i ich przyporz¹dkowania do ulic.
+- Wszystkie zmienione dane s¹ od razu aktualizowane na wszystkich stanowiskach.
+- System umo¿liwia wys³anie zakazu pracy do taksówki, która zostaje ca³kowicie wy³¹czona z systemu (np. w przypadku niep³acenia sk³adek).
+
+
+	Generowanie raportów i statystyk
+
+- Raport czasu pracy taksówek i raport iloœci zleceñ zrealizowanych przez taksówkê.
+- Raport ostatnich zdarzeñ taksówki (zmiany stanu).
+- Raport czasu pracy operatorów, raport iloœci przyjêtych i wydanych zleceñ przez operatorów.
+- Raport iloœci zleceñ dla najlepszych sta³ych klientów.
+- Podsumowanie iloœci zleceñ dla dowolnego sta³ego klienta.
+- Raport z po³¹czeñ telefonicznych (przyjêtych, nieodebranych).
+- Mo¿liwoœæ przeprowadzania g³osowañ wewnêtrznych i zamieszczenia wyników w raporcie.
+
+
+	Wiadomoœci
+
+- Mo¿liwoœæ wpisania i przes³ania dowolnej wiadomoœci tekstowej dla kierowcy.
+- Mo¿liwoœæ wpisania wiadomoœci ogólnej - jednej dla wszystkich taksówek, nadawanej w regularnych odstêpach czasu.
+- Wiadomoœci wysy³ane tylko, gdy system wykryje aktywnoœæ taksówki.
+- Wszystkie wiadomoœci zapisane w bazie danych i dostêpne dla kontroli - wa¿ne szczególnie w przypadku wiadomoœci prywatnych które s¹ niewidoczne dla wszystkich taksówek poza w³aœciw¹.
+- Mo¿liwoœæ tworzenia na poziomie centrali oraz zdalnego pobierania krótkich informacji ogólnych, jak np. dy¿urów aptek, sklepów nocnych itd.
