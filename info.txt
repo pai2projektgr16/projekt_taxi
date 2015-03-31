@@ -1,6 +1,6 @@
 G³ówne za³o¿enia co do projektu. ¯ywcem z neta.
 
-
+jhghjg
 	Zarz¹dzanie kursami przez operatora
 
 - Proste wprowadzanie zleceñ do systemu z mo¿liwoœci¹ sprawdzenia ulicy i numeru.
