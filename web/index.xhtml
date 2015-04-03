@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Taxi - Logowanie</title>
+    </h:head>
+    <h:body>
+	<h:form>
+	    <h:panelGrid columns="2">
+		<h:outputText value="Login" />
+		<h:inputText id="login" value="#{logon.login}"/>
+		
+		<h:outputText value="Hasło" />
+		<h:inputSecret id="password" value="#{logon.password}"/>
+		
+	    </h:panelGrid>
+	    
+	    <h:commandButton value="Zaloguj" action="#{logon.executeLogon()}"/>
+	</h:form>
+    </h:body>
+</html>
+

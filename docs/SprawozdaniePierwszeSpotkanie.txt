@@ -1,0 +1,54 @@
+Operator i Taksowka
+
+
+1) Zalozenia
+- 2 rodzaje uzytkownikow: Operator (administrator systemu) i taksowkarz
+- Takswokarz sie loguj sie i wylogowuje -> Ewidencja czasu pracy
+- Operator zarzadza zleceniami (dodaje i przydziela do taksowkarza) // SELECT z lista taksowek ktore sa aktualnie wolne
+- Taksowkarz posiada swoje liste kursow i dla kazdego kursu moze wykonac raport
+- Raport gdzie, do, czas rozpoczecia, ile zaplacil, ile km, uwagi
+- Operator zarzadza taksowkami
+- Generowanie PDF Raportow dla taksowkarzy (zbiorcze - aktualnego dnia)
+- Przypominanie hasla dla uzytkownikow
+
+2) ToDo 2 wersja
+- klient przez strone internetowa mogl zamowic taksowke
+- Ewidencja czasu pracy ...jakas Norma...kursow itp.
+- Algorytm przydzielania do taksowkarza i kolejkowanie ewentualnie
+- Gotowosc do podjecia kursu / zlecenia
+
+3) Srodowisko
+- Panele JAVA EE
+- JDK 8
+- REPOZYTORIUM GIT
+- baza danych MySQL
+
+4) Struktura plikow
+src
+build svn:ignore
+netbeans svn:ignore
+units (?) testy jednostkowe
+docs
+   -> SprawozdaniePierwszeSpotkanie.txt
+   -> SytetycznyOpis.docs (Wrazenia z uzywanie JPA, EJB, JSF itp. i gdzie to jest uzywane) i gdzie sa i jakie uzyte wzorce projektowe
+   -> schemat.jpg (Schemat Bazy Danych  - EER Diagram z MySQlWorkenBeeanch)
+   -> api (JavaDoc)
+   -> technical 
+	(UML Diagram Klas, UML Przypadki uzycia, Schemat blokowy)
+taxi.sql (BAZA DANYCH taxi, uzytkownik taxi, haslo taxi)
+
+5) Struktura bazy danych
+Users (mailLogin PK, pass (sha2), firstName, lastName, type ( 1 - operator, 2 - taksowkarz), lastLogon)
+Taxi (numerRejestracji PK, marka)
+UsersTaxi (id, mailLogin, idTaxi)
+Order(id, idOperator, numerRejestracji, skad, dokad, dataWstawienia, uwagi)
+Raports(idRaports, idOrder, koszt, ileKm, uwagi) 
+
+
+6) Historyjki
+	a) System autoryzacji / logowania 4 (Dominik)
+	b) System zarzadzania zleceniami (od strony panelu operatora) 5 (Maciek)
+	c) System generowania raportow 3 (Lukasz)
+	d) System zarzadzania zleceniami (od strony panelu taksowkarza) - sama lista 2 (Adrian)
+	e) System generowania raportow (PDF) Sumarycznych 3 (Lukasz)
+	f) System Przypominania hasla 2 (Adrian)
