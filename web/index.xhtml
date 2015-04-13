@@ -6,7 +6,9 @@
         <title>Taxi - Logowanie</title>
     </h:head>
     <h:body>
-	<h:form>
+	<h:outputText rendered="#{logon.isLogged}" value="Użytkownik już zalogowany" />
+	   
+	<h:form rendered="#{!logon.isLogged}">
 	    <h:panelGrid columns="2">
 		<h:outputText value="Login" />
 		<h:inputText id="login" value="#{logon.login}"/>
