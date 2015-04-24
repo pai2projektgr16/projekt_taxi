@@ -1,26 +1,42 @@
 package auth;
 
+import java.util.HashMap;
+
 /**
  * Typ wyliczeniowy w zależności od użytkownika
- * @author dominik
+ * @author Dominik Zawadzki
  */
 public enum TypeUserEnum {
-    Operator(1), Taximan(2);
+    Guess(""), Operator("operator.xhtml"), Taximan("taximan.xhtml");
     
-    int typeUser;
+    String adress;
     
-    TypeUserEnum(int value) {
-	typeUser = value;
+    TypeUserEnum(String value) {
+	adress = value;
     }
     
     public static TypeUserEnum fromValue(int value) {  
         for (TypeUserEnum my: TypeUserEnum.values()) {  
-            if (my.typeUser == value) {  
+            if (my.ordinal() == value) {  
                 return my;  
             }  
         }  
   
         return null;  
     }  
+    
+    public String getRouteAdress() {
+	return adress;
+    }
+    
+    public static Boolean isRouteAdress(String adress) {
+	 for (TypeUserEnum my: TypeUserEnum.values()) {  
+            if (my.adress.equals(adress)) {  
+                return true;
+            }  
+        }  
+	 
+	 return false;
+    }
     
 }

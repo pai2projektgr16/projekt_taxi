@@ -14,6 +14,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.NamedNativeQueries;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
@@ -32,10 +34,12 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "Users")
 @XmlRootElement
+@NamedNativeQueries({
+    @NamedNativeQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = SHA2(:password, 256)"),
+})
 @NamedQueries({
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
     @NamedQuery(name = "Users.findByMailLogin", query = "SELECT u FROM Users u WHERE u.mailLogin = :mailLogin"),
-    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"),
     @NamedQuery(name = "Users.findByType", query = "SELECT u FROM Users u WHERE u.type = :type"),
     @NamedQuery(name = "Users.findByLastLogon", query = "SELECT u FROM Users u WHERE u.lastLogon = :lastLogon")})
 public class Users implements Serializable {
@@ -43,12 +47,12 @@ public class Users implements Serializable {
     @Id
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 100)
+    @Size(min = 1, max = 100, message = "Niepoprawna długość loginu")
     @Column(name = "mailLogin")
     private String mailLogin;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 256)
+    @Size(min = 1, max = 256, message = "Niepoprawna długość hasła")
     @Column(name = "password")
     private String password;
     @Basic(optional = false)

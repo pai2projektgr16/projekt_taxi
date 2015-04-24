@@ -50,3 +50,6 @@ CREATE TABLE Report (
     attention TEXT,
 CONSTRAINT FOREIGN KEY (idOrder) REFERENCES `Order`(idOrder) ON DELETE SET NULL ON UPDATE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO Users (mailLogin, password, firstName, lastName, `type`) 
+VALUES ('dominik137@vp.pl', sha2('asdwsx', 256), 'Dominik', 'Zawadzki', 1);
