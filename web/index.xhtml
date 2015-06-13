@@ -9,14 +9,13 @@
 	<h:outputText rendered="#{logon.isLogged()}" value="Użytkownik już zalogowany" />
 	   
 	<h:form rendered="#{!logon.isLogged()}">
-	    <h:panelGrid columns="3">
+	    <h:panelGrid columns="2">
 		<h:outputText value="Login" />
-		<h:inputText lang="pl_Pl" id="login" value="#{logon.user.mailLogin}"/>
-		<h:message for="login" lang="pl_Pl"/>
+		<h:inputText id="login" value="#{logon.user.mailLogin}"/>
 		
 		<h:outputText value="Hasło" />
 		<h:inputSecret id="password" value="#{logon.user.password}"/>
-		<h:message for="password" />
+		
 	    </h:panelGrid>
 	    
 	    <h:commandButton value="Zaloguj" action="#{logon.executeLogon()}"/>

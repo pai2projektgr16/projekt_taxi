@@ -6,6 +6,9 @@
 package model;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -34,9 +37,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "Users")
 @XmlRootElement
-@NamedNativeQueries({
-    @NamedNativeQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = SHA2(:password, 256)"),
-})
+@NamedNativeQuery(name = "Users.findByPassword", query = "SELECT * FROM Users u WHERE u.password = "
+	    + "SHA2(?, 256) AND u.mailLogin = ?", resultClass=Users.class)
 @NamedQueries({
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u"),
     @NamedQuery(name = "Users.findByMailLogin", query = "SELECT u FROM Users u WHERE u.mailLogin = :mailLogin"),

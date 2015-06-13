@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS Taxi;
 
 CREATE TABLE Users (
     mailLogin VARCHAR(100) PRIMARY KEY,
-    password	VARCHAR(256)  NOT NULL, --sha256
+    password	TEXT  NOT NULL, --sha256
     firstName text NOT NULL,
     lastName text NOT NULL,
     `type` TINYINT NOT NULL,
@@ -53,3 +53,8 @@ CONSTRAINT FOREIGN KEY (idOrder) REFERENCES `Order`(idOrder) ON DELETE SET NULL 
 
 INSERT INTO Users (mailLogin, password, firstName, lastName, `type`) 
 VALUES ('dominik137@vp.pl', sha2('asdwsx', 256), 'Dominik', 'Zawadzki', 1);
+
+DROP TRIGGER IF EXISTS hashPassword;
+
+CREATE TRIGGER hashPassword BEFORE UPDATE ON Users FOR EACH ROW
+SET NEW.password = sha2(NEW.password, 256);

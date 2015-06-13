@@ -17,31 +17,24 @@ import model.Users;
 @SessionScoped
 public class Logon {
 
-
     private Boolean isLogged = false;
     private TypeUserEnum typeUser;
 
     private Users user = new Users();
-    
+
     @PersistenceContext
     private EntityManager em;
 
-    /**
-     * Creates a new instance of Logon
-     */
-    public Logon() {
-    }
-
-    
     public String executeLogon() throws Exception {
 
-	Query query = em.createNamedQuery("Users.findByMailLogin")
-		.setParameter("mailLogin", user.getMailLogin());
+	Query query = em.createNamedQuery("Users.findByPassword");
+	query.setParameter(1, this.user.getPassword());
+	query.setParameter(2, this.user.getMailLogin());
 	try {
 
 	    user = (Users) query.getSingleResult();
 
-	    if (!user.getPassword().equals(user.getPassword())) {
+	    if (user == null) {
 		throw new NoResultException();
 	    }
 
@@ -72,11 +65,11 @@ public class Logon {
     public Users getUser() {
 	return user;
     }
-    
+
     public String getUserName() {
 	return user.getMailLogin();
     }
-    
+
     public void logout() {
 	isLogged = false;
 	user = new Users();
