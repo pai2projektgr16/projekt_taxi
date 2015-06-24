@@ -36,7 +36,7 @@ public class ChangePassword {
     @EJB
     private EmailSessionBean mailBean;
 
-    List<String> messagesErrorList = new ArrayList();
+    private List<String> messagesErrorList = new ArrayList();
 
     /**
      * 1 etap przypomnienia hasła, tzn. wykonanie sprawdzenia czy taka osoba istnieje w systemie (mail) Wygenerowanie
@@ -44,6 +44,7 @@ public class ChangePassword {
      *
      * @param mail
      * @param siteUrl adres strony internetowej do ktorej ma byc link w mailu
+     * @param siteTitle tytuł strony
      * @return
      */
     public boolean sendMailRemember(String mail, String siteUrl, String siteTitle) throws Exception {
@@ -97,6 +98,12 @@ public class ChangePassword {
 	    return false;
 	}
     }
+
+    public List<String> getMessagesErrorList() {
+	return messagesErrorList;
+    }
+    
+    
 
     /**
      * Zwraca informacje o użytkowniku lub null gdy go nie znaleziono
