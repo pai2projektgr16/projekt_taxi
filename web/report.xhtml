@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Generowanie raportu</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top" class="top">
+            <ui:insert name="top"><h2>Generowanie raportu</h2></ui:insert>
+        </div>
+
+        <div id="content" class="center_content">
+            <ui:insert name="content">
+                <br></br>
+ <h:form>
+    <h:panelGrid id="gridSelectedOrder" columns="3" cellpadding="5">
+        <h:outputLabel for="menu" value="Wybierz zlecenia:" />
+        <p:selectCheckboxMenu id="menu" value="#{listOrder.selectedOrder}" label="Zlecenia"
+                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
+            <f:selectItems value="#{listOrder.order}" />
+        </p:selectCheckboxMenu>
+        <p:commandLink value="Zapisz" update="display" />
+    </h:panelGrid>
+ 
+    <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
+        <p:dataList value="#{listOrder.selectedOrder}" var="order" emptyMessage="Brak zaznaczeń">
+            #{order}
+        </p:dataList>
+    </p:outputPanel>
+    
+     <p:separator />     
+  
+    
+    <br />
+    <p:commandButton value="Generuj raport" actionListener="#{listOrder.generateReportAction()}" styleClass="ui-priority-primary" />
+ 
+    <br />
+    <br />
+    
+  
+    
+</h:form>
+                    <br></br>
+                    </ui:insert>
+        </div>
+    </h:body>
+
+</html>
+
