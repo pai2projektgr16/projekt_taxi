@@ -15,18 +15,13 @@ import java.util.List;
 public class GenerateReport {
     
     private List<String> messagesErrorList = new ArrayList();
-    
-    String wybraneID;
-    
-     public boolean sprawdzID(String id) throws Exception {
+ 
 
-	this.wybraneID = id;
-	
-        
-	
-	return true;
-
-    }   
+    public GenerateReport() {
+   
+    }
+ 
+     
      
       public List<String> getMessagesErrorList() {
 	return messagesErrorList;
