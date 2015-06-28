@@ -22,37 +22,114 @@
         <div id="content" class="center_content">
             <ui:insert name="content">
                 <br></br>
- <h:form>
-    <h:panelGrid id="gridSelectedOrder" columns="3" cellpadding="5">
-        <h:outputLabel for="menu" value="Wybierz zlecenia:" />
-        <p:selectCheckboxMenu id="menu" value="#{listOrder.selectedOrder}" label="Zlecenia"
-                              filter="true" filterMatchMode="startsWith" panelStyle="width:250px">
-            <f:selectItems value="#{listOrder.order}" />
-        </p:selectCheckboxMenu>
-        <p:commandLink value="Zapisz" update="display" />
-    </h:panelGrid>
- 
-    <p:outputPanel id="display" style="width:250px;padding-left:5px;margin-top:10px">
-        <p:dataList value="#{listOrder.selectedOrder}" var="order" emptyMessage="Brak zaznaczeń">
-            #{order}
-        </p:dataList>
-    </p:outputPanel>
-    
-     <p:separator />     
-  
-    
-    <br />
-    <p:commandButton value="Generuj raport" actionListener="#{listOrder.generateReportAction()}" styleClass="ui-priority-primary" />
- 
-    <br />
-    <br />
-    
-  
-    
-</h:form>
-                    <br></br>
-                    </ui:insert>
+
+
+
+
+
+                <br></br>
+                <h:form>
+
+
+
+                    <h:panelGrid id="gridSelectedOrder" columns="3" cellpadding="5">
+                        <h:outputLabel for="menu" value="Wybierz zlecenia:" />
+                        <p:selectCheckboxMenu id="menu" value="#{listOrder.selectedOrder}"  label="Zlecenia"
+                                              filter="true"  filterMatchMode="startsWith" >
+                            <f:selectItems value="#{listOrder.order}" />
+                        </p:selectCheckboxMenu>
+                        <p:commandLink value="Zapisz" update="display" />
+                    </h:panelGrid>
+
+                    <p:outputPanel id="display" style="padding-left:5px;margin-top:10px">
+                        <p:dataList value="#{listOrder.selectedOrder}" var="order"  emptyMessage="Brak zaznaczeń">
+                            #{order}
+                        </p:dataList>
+                    </p:outputPanel>
+
+                    <p:separator />     
+
+
+                    <br />
+
+                    <p:commandButton value="Generuj raport" update="statystyki" actionListener="#{listOrder.generateReportAction()}" styleClass="ui-priority-primary" />
+
+                    <br />
+                    <br />
+
+                    <h:panelGrid id="statystyki" columns="3" cellpadding="5">
+                        <p:dataTable var="report" value="#{listOrder.allReports}" style="margin-bottom:40px">
+                            <f:facet name="header">
+                                Statystyki
+                            </f:facet>
+                            <p:column headerText="Rejestracja" sortBy="#{report.nrRejestracji}">
+                                <h:outputText value="#{report.nrRejestracji}" />
+                            </p:column>
+                            <!--
+                         <p:column headerText="Kierowca" sortBy="{report.kierowca}">
+                             <h:outputText value="{report.kierowca}" />
+                         </p:column> -->
+
+                            <p:column headerText="Kto wprowadził zlec." sortBy="#{report.operator}">
+                                <h:outputText value="#{report.operator}" />
+                            </p:column>
+
+                            <p:column headerText="Skąd" sortBy="#{report.from}">
+                                <h:outputText value="#{report.from}" />
+                            </p:column>
+
+                            <p:column headerText="Dokąd" sortBy="#{report.to}">
+                                <h:outputText value="#{report.to}" />
+                            </p:column>
+
+                            <p:column headerText="Data" sortBy="#{report.date}">
+                                <h:outputText value="#{report.date}" />
+                            </p:column>
+
+                            <p:column headerText="Dystans" sortBy="#{report.distanse}">
+                                <h:outputText value="#{report.distanse}" />
+                            </p:column>
+
+                            <p:column headerText="Koszt" sortBy="#{report.price}">
+                                <h:outputText value="#{report.price}" />
+                            </p:column>
+
+                            <p:column headerText="Uwagi" sortBy="#{report.attencion}">
+                                <h:outputText value="#{report.attencion}" />
+                            </p:column>
+                        </p:dataTable>
+                    </h:panelGrid>
+                    
+                     <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">
+                    <p:graphicImage name="/demo/images/ajaxloadingbar.gif" />
+                </p:dialog>
+
+              
+                    <p:commandButton  value="Zapisz raport jako PDF" disabled="true"  ajax="false" onclick="PrimeFaces.monitorDownload(start, stop);" icon="ui-icon-arrowthick-1-s">
+                        <p:fileDownload value="#{listOrder.file}" />
+                    </p:commandButton>
+           
+
+                </h:form>
+
+
+                <script type="text/javascript">
+                    function start() {
+                        PF('statusDialog').show();
+                    }
+
+                    function stop() {
+                        PF('statusDialog').hide();
+                    }
+                </script>
+
+
+                <br></br>
+            </ui:insert>
         </div>
+
+
+
     </h:body>
 
 </html>
