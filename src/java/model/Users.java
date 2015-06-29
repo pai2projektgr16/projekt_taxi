@@ -6,9 +6,6 @@
 package model;
 
 import java.io.Serializable;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
@@ -17,7 +14,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -77,7 +73,7 @@ public class Users implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date lastLogon;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "operator")
-    private Collection<Order1> order1Collection;
+    private Collection<Order> order1Collection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mailLogin")
     private Collection<UsersTaxi> usersTaxiCollection;
 
@@ -145,11 +141,11 @@ public class Users implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Order1> getOrder1Collection() {
+    public Collection<Order> getOrder1Collection() {
 	return order1Collection;
     }
 
-    public void setOrder1Collection(Collection<Order1> order1Collection) {
+    public void setOrder1Collection(Collection<Order> order1Collection) {
 	this.order1Collection = order1Collection;
     }
 

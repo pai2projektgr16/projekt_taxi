@@ -38,7 +38,7 @@ public class CheckAuthFilter implements Filter {
 	    FilterChain chain)
 	    throws IOException, ServletException {
 	
-	HttpSession session = ((HttpServletRequest) request).getSession(false);
+HttpSession session = ((HttpServletRequest) request).getSession(false);
 	Logon logon = (session != null) ? (Logon) session.getAttribute("logon") : null;
 
 	String path = ((HttpServletRequest) request).getPathInfo().substring(1);
@@ -47,31 +47,11 @@ public class CheckAuthFilter implements Filter {
 	if (logon != null && logon.isLogged() && path.equals("index.xhtml")) {
 	    ((HttpServletResponse) response).sendRedirect(logon.getTypeUser().getRouteAdress());
 	} else if (logon != null && !logon.isLogged() && TypeUserEnum.isRouteAdress(path)) {
-	    ((HttpServletResponse) response).sendRedirect("/index.html");
+	    ((HttpServletResponse) response).sendRedirect("index.html");
 	}
 	
-	Throwable problem = null;
-	try {
-	    chain.doFilter(request, response);
-	} catch (Throwable t) {
-	    // If an exception is thrown somewhere down the filter chain,
-	    // we still want to execute our after processing, and then
-	    // rethrow the problem after that.
-	    problem = t;
-	    t.printStackTrace();
-	}
-
-	// If there was a problem, we want to rethrow it if it is
-	// a known type, otherwise log it.
-	if (problem != null) {
-	    if (problem instanceof ServletException) {
-		throw (ServletException) problem;
-	    }
-	    if (problem instanceof IOException) {
-		throw (IOException) problem;
-	    }
-	    
-	}
+	
+	chain.doFilter(request, response);
     }
     
     @Override

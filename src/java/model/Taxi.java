@@ -47,7 +47,7 @@ public class Taxi implements Serializable {
     @Column(name = "make")
     private String make;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "numberRegister")
-    private Collection<Order1> order1Collection;
+    private Collection<Order> order1Collection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "numberRegister")
     private Collection<UsersTaxi> usersTaxiCollection;
 
@@ -80,11 +80,11 @@ public class Taxi implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Order1> getOrder1Collection() {
+    public Collection<Order> getOrder1Collection() {
 	return order1Collection;
     }
 
-    public void setOrder1Collection(Collection<Order1> order1Collection) {
+    public void setOrder1Collection(Collection<Order> order1Collection) {
 	this.order1Collection = order1Collection;
     }
 

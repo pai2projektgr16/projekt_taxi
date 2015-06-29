@@ -10,9 +10,15 @@ public enum TypeUserEnum {
     Guess(""), Operator("operator.xhtml"), Taximan("taximan.xhtml");
     
     String adress;
+    String nameType;
     
     TypeUserEnum(String value) {
 	adress = value;
+	
+	switch(adress) {
+	    case "taximan.xhtml" : nameType = "taksówkarz"; break;
+	    case "operator.xhtml" : nameType = "operator"; break;
+	}
     }
     
     public static TypeUserEnum fromValue(int value) {  
@@ -37,6 +43,10 @@ public enum TypeUserEnum {
         }  
 	 
 	 return false;
+    }
+    
+    public String getNameType() {
+	return nameType;
     }
     
 }

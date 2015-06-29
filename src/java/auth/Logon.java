@@ -1,5 +1,6 @@
 package auth;
 
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.persistence.EntityManager;
@@ -13,9 +14,9 @@ import model.Users;
  *
  * @author Dominik Zawadzki
  */
-@ManagedBean
+@ManagedBean(name="logon")
 @SessionScoped
-public class Logon {
+public class Logon implements Serializable {
 
     private Boolean isLogged = false;
     private TypeUserEnum typeUser;

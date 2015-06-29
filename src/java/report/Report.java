@@ -9,7 +9,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import model.Orders;
+import model.Order;
 import model.Users;
 
 /**
@@ -34,11 +34,11 @@ public class Report {
     public Report() {
     }
 
-    public Report(Orders o) {
+    public Report(Order o) {
         generuj(o);
     }
 
-    private void generuj(Orders o) {
+    private void generuj(Order o) {
 
       nrRejestracji = o.getNumberRegister().getNumberRegister();
       operator = o.getOperator().getFirstName() + " " + o.getOperator().getLastName();

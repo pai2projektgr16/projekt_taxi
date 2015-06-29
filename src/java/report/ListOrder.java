@@ -11,21 +11,15 @@ package report;
  */
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.servlet.ServletContext;
-import javax.transaction.UserTransaction;
 import model.*;
 import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
@@ -36,7 +30,7 @@ public class ListOrder {
     private String[] selectedOrder;
     private List<String> checkedOrder;
     private List<String> order;
-    private List<Orders> o;
+    private List<Order> o;
    
     private StreamedContent file;
     
@@ -53,7 +47,7 @@ public class ListOrder {
 
         o = getAllOrders();
         
-        Orders or = new Orders();
+        Order or = new Order();
         
         for (int i = 0, n = o.size(); i < n; i++) {
             or = o.get(i);
@@ -65,10 +59,10 @@ public class ListOrder {
          order.add("Paris"); */
     }
 
-    public List<Orders> getAllOrders() {
+    public List<Order> getAllOrders() {
 
         Query query = em.createNamedQuery("Orders.findAll");
-        return (List<Orders>) query.getResultList();
+        return (List<Order>) query.getResultList();
 
     }
 
@@ -104,7 +98,7 @@ public class ListOrder {
         return allReports;
     }
 
-    public Orders getOrdersById(int id) {
+    public Order getOrdersById(int id) {
         return o.get(id);
     }
 

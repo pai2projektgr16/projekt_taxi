@@ -55,7 +55,7 @@ public class Report implements Serializable {
     private String attention;
     @JoinColumn(name = "idOrder", referencedColumnName = "idOrder")
     @ManyToOne
-    private Order1 idOrder;
+    private Order idOrder;
 
     public Report() {
     }
@@ -102,11 +102,11 @@ public class Report implements Serializable {
 	this.attention = attention;
     }
 
-    public Order1 getIdOrder() {
+    public Order getIdOrder() {
 	return idOrder;
     }
 
-    public void setIdOrder(Order1 idOrder) {
+    public void setIdOrder(Order idOrder) {
 	this.idOrder = idOrder;
     }
 
