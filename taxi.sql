@@ -67,7 +67,7 @@ INSERT INTO `Taxi` (`numberRegister`, `make`) VALUES
 ('FTY 4543', 'Audi');
 
 INSERT INTO Users (mailLogin, password, firstName, lastName, `type`) 
-VALUES ('dominik137@vp.pl', sha2('asdwsx', 256), 'Dominik', 'Zawadzki', 1);
+VALUES ('dominik137@vp.pl', sha2('asdwsx', 256), 'Dominik', 'Zawadzki', 2);
 INSERT INTO `Users` (`mailLogin`, `password`, `firstName`, `lastName`, `type`, `lastLogon`) VALUES
 ('mail9@mail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'Lukasz', 'sfsfdsfd', 2, NULL),
 ('mail2@mail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'adadswa', 'fgdgfd', 2, NULL),

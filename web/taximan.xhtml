@@ -2,11 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Panel taksówkarza</title>
 	
-	
+	<style>
+	    .table {
+		border: 1px solid black;
+	    }
+	</style>
     </h:head>
     <h:body>
 	<ui:composition template="template/bar.xhtml" ></ui:composition>
@@ -17,7 +22,45 @@
 	
 	<h2>Zlecenia</h2>
 	<p>
-	    
+	    <h:dataTable value="#{taxiManagedBean.ordersList}" var="order" styleClass="table">
+	    <h:column>
+		<f:facet name="header">
+		    <h:outputText value="skąd"/>
+		</f:facet>
+		<h:outputText value="#{order.from}" />
+	    </h:column>
+	    <h:column>
+		<f:facet name="header">
+		    <h:outputText value="dokąd"/>
+		</f:facet>
+		<h:outputText value="#{order.to}" />
+	    </h:column>
+	    <h:column>
+		<f:facet name="header">
+		    <h:outputText value="data dodania"/>
+		</f:facet>
+		<h:outputText value="#{order.dateAdd}">
+		    <f:convertDateTime type="both" dateStyle="full" />
+		</h:outputText>
+	    </h:column>
+	    <h:column>
+		<f:facet name="header">
+		    <h:outputText value="uwagi"/>
+		</f:facet>
+		<ui:fragment rendered="#{order.attention == null}">
+		    brak
+		</ui:fragment>
+		<ui:fragment rendered="#{order.attention.length() > 0}">
+		    <h:outputText value="#{order.attention}" />tak
+		</ui:fragment>
+	    </h:column>
+	    <h:column>
+		<f:facet name="header">
+		    <h:outputText value="operator"/>
+		</f:facet>
+		<h:outputText value="#{order.operator.firstName} #{order.operator.lastName}" />
+	    </h:column>
+	</h:dataTable>
 	</p>
     </h:body>
 </html>

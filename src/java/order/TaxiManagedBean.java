@@ -7,8 +7,10 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
+import model.Order;
 import model.UsersTaxi;
 
 /**
@@ -21,20 +23,19 @@ public class TaxiManagedBean {
 
     private String numberRegister;
 
-    @PersistenceContext
     private EntityManager em;
 
     private Logon logon;
 
     private UsersTaxi userTaxi = new UsersTaxi();
+    
+    private List <Order> ordersList;
 
     public TaxiManagedBean() throws Exception {
-	
-	//logon = (Logon) request.getSession().getAttribute("beanName");
 
 	FacesContext context = FacesContext.getCurrentInstance();
-logon = context.getApplication().evaluateExpressionGet(context, "#{logon}", Logon.class);
-	
+	logon = context.getApplication().evaluateExpressionGet(context, "#{logon}", Logon.class);
+
 	if (!logon.isLogged()) {
 	    throw new Exception("Użytkownik nie zalogowany");
 	}
@@ -43,12 +44,16 @@ logon = context.getApplication().evaluateExpressionGet(context, "#{logon}", Logo
 	    throw new Exception("Użytkownik nie jest taksówkarzem!");
 	}
 
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("Taxi");
+	em = factory.createEntityManager();
+	
 	loadNumberRegister();
+	loadOrder();
 
     }
 
     private void loadNumberRegister() throws Exception {
-	Query query = em.createNamedQuery("Users.findByMailLogin")
+	Query query = em.createNamedQuery("UsersTaxi.findByMailLogin2")
 		.setParameter("mailLogin", logon.getUserName());
 	List<UsersTaxi> usersTaxiCollection = query.getResultList();
 
@@ -56,12 +61,24 @@ logon = context.getApplication().evaluateExpressionGet(context, "#{logon}", Logo
 	    throw new Exception("Niepoprawna ilość taksówek przypisanych dla taksówkarza");
 	}
 
-	userTaxi = usersTaxiCollection.get(1);
+	userTaxi = usersTaxiCollection.get(0);
 	numberRegister = userTaxi.getNumberRegister().getNumberRegister();
+    }
+    
+    private void loadOrder() {
+	Query query = em.createNamedQuery("Orders.findByNumberRegister")
+		.setParameter("numberRegister", numberRegister);
+	ordersList = query.getResultList();
     }
 
     public String getNumberRegister() {
 	return numberRegister;
     }
+
+    public List<Order> getOrdersList() {
+	return ordersList;
+    }
+    
+    
 
 }

@@ -33,11 +33,13 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author Łukasz
  */
 @Entity
-@Table(name = "Order")
+@Table(name = "\"Order\"")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Orders.findAll", query = "SELECT o FROM Order o"),
     @NamedQuery(name = "Orders.findByIdOrder", query = "SELECT o FROM Order o WHERE o.idOrder = :idOrder"),
+    @NamedQuery(name = "Orders.findByNumberRegister", query = "SELECT o FROM Order o WHERE o.numberRegister.numberRegister"
+	    + " = :numberRegister"),
     @NamedQuery(name = "Orders.findByDateAdd", query = "SELECT o FROM Order o WHERE o.dateAdd = :dateAdd")})
 public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -50,13 +52,13 @@ public class Order implements Serializable {
     @NotNull
     @Lob
     @Size(min = 1, max = 65535)
-    @Column(name = "from_")
+    @Column(name = "\"from\"")
     private String from;
     @Basic(optional = false)
     @NotNull
     @Lob
     @Size(min = 1, max = 65535)
-    @Column(name = "to_")
+    @Column(name = "\"to\"")
     private String to;
     @Column(name = "dateAdd")
     @Temporal(TemporalType.TIMESTAMP)

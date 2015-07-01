@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedNativeQuery;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -29,7 +30,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "UsersTaxi.findAll", query = "SELECT u FROM UsersTaxi u"),
     @NamedQuery(name = "UsersTaxi.findByIdUsersTaxi", query = "SELECT u FROM UsersTaxi u WHERE u.idUsersTaxi = :idUsersTaxi"),
-    @NamedQuery(name = "UsersTaxi.findByMailLogin", query = "SELECT u FROM UsersTaxi u WHERE u.mailLogin = :mailLogin")})
+    @NamedQuery(name = "UsersTaxi.findByMailLogin2", query = "SELECT u FROM UsersTaxi u WHERE u.mailLogin.mailLogin = :mailLogin"),
+    })
+@NamedNativeQuery(name = "UsersTaxi.findByMailLogin", query = "SELECT * FROM UsersTaxi u WHERE u.mailLogin = ?", resultClass=UsersTaxi.class)
 public class UsersTaxi implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
